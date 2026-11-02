@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Gastronomia Típica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('locais') }}">Locais a Visitar</a>
+        <a href="{{ url_for('gastronomia') }}">Gastronomia Típica</a>
+    </nav>
+    <hr>
+    <h1>Gastronomia Típica</h1>
+    <p>Pratos tradicionais da região.</p>
+</body>
+</html>
