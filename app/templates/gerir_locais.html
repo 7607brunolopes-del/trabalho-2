@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Locais a Visitar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='locais.css') }}">
+</head>
+<body>
+    <nav>
+        <p>
+            <strong>Navegação:</strong> |
+            <a href="{{ url_for('index') }}">Início</a> |
+            <a href="{{ url_for('locais') }}">Locais a Visitar</a> |
+            <b>Gerir Locais</b> |
+            <a href="{{ url_for('gastronomia') }}">Gastronomia Típica</a> |
+            <a href="{{ url_for('restaurantes') }}">Restaurantes</a> |
+        </p>
+    </nav>
+    <hr>
+    <h1>Gestão de Locais a Visitar</h1>
+    <h2>Adicionar Novo Local</h2>
+    <form method="POST">
+        <p>Nome: <input type="text" name="nome" required></p>
+        <p>Zona: <input type="text" name="zona" required></p>
+        <p>Tipo: <input type="text" name="tipo" required></p>
+        <p>Gama de Preço:
+            <select name="preco" required>
+                <option value="Gratuito">Gratuito</option>
+                <option value="Barato">Barato</option>
+                <option value="Médio">Médio</option>
+                <option value="Caro">Caro</option>
+            </select>
+        </p>
+        <button type="submit">Guardar Local</button>
+    </form>
+    <hr>
+    <h2>Lista de Locais na Base de Dados</h2>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Zona</th>
+                <th>Tipo</th>
+                <th>Gama de Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in locais %}
+            <tr>
+                <td>{{ r.nome }}</td>
+                <td>{{ r.zona }}</td>
+                <td>{{ r.tipo }}</td>
+                <td>{{ r.preco }}</td>
+                <td>
+                    <a href="{{ url_for('editar_local', id=r.id) }}">
+                        <button type="button">Editar</button>
+                    </a>
+                    <form action="{{ url_for('apagar_local', id=r.id) }}" method="POST" style="display:inline;">
+                        <button type="submit">Apagar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

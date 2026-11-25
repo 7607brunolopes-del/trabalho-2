@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Local - Guia de Lisboa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='locais.css') }}">
+</head>
+<body>
+    <h1>Editar Local</h1>
+    <hr>
+    <form method="POST">
+        <p>Nome: <input type="text" name="nome" value="{{ local.nome }}" required></p>
+        <p>Zona: <input type="text" name="zona" value="{{ local.zona }}" required></p>
+        <p>Tipo: <input type="text" name="tipo" value="{{ local.tipo }}" required></p>
+        <p>Gama de Preço:
+            <select name="preco" required>
+                <option value="Gratuito" {% if local.preco == 'Gratuito' %}selected{% endif %}>Gratuito</option>
+                <option value="Barato" {% if local.preco == 'Barato' %}selected{% endif %}>Barato</option>
+                <option value="Médio" {% if local.preco == 'Médio' %}selected{% endif %}>Médio</option>
+                <option value="Caro" {% if local.preco == 'Caro' %}selected{% endif %}>Caro</option>
+            </select>
+        </p>
+        <button type="submit">Guardar Alterações</button>
+        <a href="{{ url_for('gerir_locais') }}">Cancelar</a>
+    </form>
+</body>
+</html>

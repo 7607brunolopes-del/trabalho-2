@@ -3,16 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Locais a Visitar</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='locais.css') }}">
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">Início</a>
-        <a href="{{ url_for('locais') }}">Locais a Visitar</a>
-        <a href="{{ url_for('gastronomia') }}">Gastronomia Típica</a>
+        <p>
+            <strong>Navegação:</strong> |
+            <a href="{{ url_for('index') }}">Início</a> |
+            <b>Locais a Visitar</b> |
+            <a href="{{ url_for('gerir_locais') }}">Gerir Locais</a> |
+            <a href="{{ url_for('gastronomia') }}">Gastronomia Típica</a> |
+            <a href="{{ url_for('restaurantes') }}">Restaurantes</a> |
+        </p>
     </nav>
     <hr>
     <h1>Locais a Visitar</h1>
     <p>Lista de locais turísticos.</p>
+    <h2>Guia de Locais</h2>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Zona</th>
+                <th>Tipo</th>
+                <th>Gama de Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in locais %}
+            <tr>
+                <td>{{ r.nome }}</td>
+                <td>{{ r.zona }}</td>
+                <td>{{ r.tipo }}</td>
+                <td>{{ r.preco }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

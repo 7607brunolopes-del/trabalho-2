@@ -1,0 +1,52 @@
+/* CSS das páginas de Gastronomia e Restaurantes */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fff8f0;
+    color: #333;
+}
+
+h1 { color: #b5451b; }
+h2 { color: #8a3414; }
+
+nav a {
+    margin: 0 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+nav a:hover { color: #b5451b; }
+
+hr { border: none; border-top: 2px solid #e8c9a8; margin: 15px 0; }
+
+form p { margin: 8px 0; }
+
+input[type="text"], select {
+    padding: 6px;
+    border: 1px solid #c9a982;
+    border-radius: 4px;
+    min-width: 220px;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #b5451b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover { background-color: #8a3414; }
+
+table {
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 10px;
+}
+th {
+    background-color: #b5451b;
+    color: #fff;
+    text-align: left;
+}
+th, td { border: 1px solid #e8c9a8; padding: 8px; }
+tr:nth-child(even) td { background-color: #fdf1e3; }
